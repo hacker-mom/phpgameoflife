@@ -1,0 +1,21 @@
+{
+  "name" : "sample",
+  "version" : "0.1.0",
+  "description" : "sample css solutions",
+  "license" : "MIT",
+  "ignore" : [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/",
+    "vendor/",
+    "test",
+    "tests"
+  ],
+   "dependencies": {
+    "font-awesome": "fontawesome#latest",
+    "holderjs": "latest",
+    "jquery": "2.2.0",
+    "normalize-css": "normalize.css#latest"
+  }
+}
