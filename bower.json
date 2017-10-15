@@ -13,9 +13,9 @@
     "tests"
   ],
    "dependencies": {
-    "font-awesome": "fontawesome#latest",
+    "font-awesome": "fontawesome#newlatest",
     "holderjs": "latest",
     "jquery": "2.2.0",
-    "normalize-css": "normalize.css#latest"
+    "normalize-css": "normalize.css#newlatest"
   }
 }
