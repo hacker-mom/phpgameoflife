@@ -2,7 +2,7 @@ var GAMEOFLIFE = GAMEOFLIFE || {};
 var iteration = 1;
 GAMEOFLIFE.init = function(){
 
-    setInterval(function(){GAMEOFLIFE.ajaxCall()}, 10 );
+    setInterval(function(){GAMEOFLIFE.ajaxCall()}, 2000 );
 
 };
 

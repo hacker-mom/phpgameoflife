@@ -22,7 +22,7 @@ class World{
     }
 
     protected function seed(){
-        for($y = 1; $y <= 100; $y++) {
+        for($y = 1; $y <= 50; $y++) {
                 foreach($this->rowGen($y) as $val){
                     echo $val;
                 }
@@ -31,7 +31,7 @@ class World{
 
 
     protected function rowGen($y){
-        for ($x = 1; $x <= 100; $x++) {
+        for ($x = 1; $x <= 50; $x++) {
             $random = mt_rand(0, 100);
             if($random < $this->precentage) {
                 $state = 1;
@@ -50,9 +50,9 @@ class World{
     public function tick()
     {
         //Parse the existing state of the map for the game rules
-        for ($y = 1; $y < 100; $y++) {
+        for ($y = 1; $y < 50; $y++) {
            
-            for ($x = 1; $x < 100; $x++) {
+            for ($x = 1; $x < 50; $x++) {
                 if(isset($this->cells[$x][$y])){
 
                  $currentState = $this->cells[$x][$y]->state;

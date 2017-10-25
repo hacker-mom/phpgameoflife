@@ -20,6 +20,9 @@
     clear:both;
     float:none;
 }
+.clearer{
+    clear:both;
+}
 @media (max-width: 768px) {
     .content {
         width: 600px;
