@@ -23,11 +23,9 @@ class World{
 
     protected function seed(){
         for($y = 1; $y <= 100; $y++) {
-            print 'seeded<div class="row">';
                 foreach($this->rowGen($y) as $val){
                     echo $val;
                 }
-            print '</div>';
         }
     }
 
@@ -37,27 +35,48 @@ class World{
             $random = mt_rand(0, 100);
             if($random < $this->precentage) {
                 $state = 1;
+               
             }else{
                 $state = 0;
+                
             }
             $this->cells[$x][$y] = new Cell($x, $y, $state);
-            yield   $this->cells[$x][$y];
-
+                 yield   $this->cells[$x][$y];
+           
         }
+         yield '<div class ="clearer"></div>';
     }
 
     public function tick()
     {
         //Parse the existing state of the map for the game rules
         for ($y = 1; $y < 100; $y++) {
-            print '<div class="row">';
+           
             for ($x = 1; $x < 100; $x++) {
-                $currentState = $this->cells[$x][$y]->state;
-                $liveNeighbors = $this->cells[$x-1][$y-1]->state + $this->cells[$x][$y-1]->state + $this->cells[$x+1][$y-1]->state
-                    + $this->cells[$x-1][$y]->state + $this->cells[$x+1][$y]->state
-                    + $this->cells[$x-1][$y+1]->state + $this->cells[$x][$y+1]->state + $this->cells[$x+1][$y+1]->state;
-                if(isset($this->cells[$x][$y])) {
-                    if ($liveNeighbors < 2) {
+                if(isset($this->cells[$x][$y])){
+
+                 $currentState = $this->cells[$x][$y]->state;
+                 $liveNeighbors = 0;
+
+                 if(isset($this->cells[$x-1][$y-1]) && $this->cells[$x-1][$y-1]->state){
+                    $liveNeighbors  ++;
+                 }
+                 if(isset($this->cells[$x][$y-1]) && $this->cells[$x][$y-1]->state){
+                    $liveNeighbors  ++;
+                 }
+                 if(isset($this->cells[$x-1][$y]) && $this->cells[$x-1][$y]->state){
+                    $liveNeighbors  ++;
+                 }
+                 if(isset($this->cells[$x][$y+1]) && $this->cells[$x][$y+1]->state){
+                    $liveNeighbors  ++;
+                 }
+                 if(isset($this->cells[$x+1][$y]) && $this->cells[$x+1][$y]->state){
+                    $liveNeighbors  ++;
+                 }
+                 if(isset($this->cells[$x+1][$y+1]) && $this->cells[$x][$y+1]->state){
+                    $liveNeighbors  ++;
+                 }
+                  if ($liveNeighbors < 2) {
                         $this->cells[$x][$y]->setState(0);
                     } elseif ($liveNeighbors < 4 && $currentState) {
                         $this->cells[$x][$y]->setState(1);
@@ -66,10 +85,11 @@ class World{
                     } else {
                         $this->cells[$x][$y]->setState(0);
                     }
-                }
+               }
+               
                 print  $this->cells[$x][$y];
             }
-            print '</div>';
+            print '<div class ="clearer"></div>';
         }
         //Persist the updated map
        /* for ($y = 0; $y < $this->ySize; $y++) {
