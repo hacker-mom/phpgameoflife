@@ -4,9 +4,6 @@ GAMEOFLIFE.init = function(){
 
     setInterval(function(){GAMEOFLIFE.ajaxCall()}, 2000 );
 
-
-
-
 };
 
 GAMEOFLIFE.ajaxCall = function(){
@@ -16,7 +13,7 @@ GAMEOFLIFE.ajaxCall = function(){
         method: 'POST',
         url: "createCells.php",
         data: {iteration : iteration},
-       // contentType: "text/html",
+        contentType: "text/html",
         success: function (resp) {
             $('#cells').html(resp);
         }

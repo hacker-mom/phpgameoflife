@@ -7,7 +7,7 @@ session_start();
     <title>Game of life</title>
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <!--<script type="text/javascript" src="js/scripts.js"></script>-->
+    <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 
 <body>
@@ -21,7 +21,7 @@ session_start();
             Any live cell with more than three live neighbours dies, as if by overpopulation.
             Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
             */
-            //$_SESSION['world'] = array();
+            $_SESSION['world'] = array();
            // die();
             if (empty($_SESSION['world'])) {
             $world = new World();

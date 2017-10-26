@@ -25,7 +25,7 @@ class Cell{
     }
 
     public function __get($variable){
-        return $this->variable;
+        return $this->$variable;
     }
 
     public function setColor($color)
